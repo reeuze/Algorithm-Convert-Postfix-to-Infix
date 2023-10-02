@@ -1,5 +1,5 @@
 class Convert:
-    def __Init__(self):
+    def __init__(self):
         self.Input = []
         # self.Stack = []
         self.Output = ""
@@ -14,7 +14,7 @@ class Convert:
         if character in operators:
             return True
     def Combine(self, value_1, value_2, operator):
-        return str(value_1+operator+value_2)
+        return value_1+operator+value_2
     def Algorithm(self, input = [], index = 0):
         for i in range(index, len(input)):
             self.Print(input[i])
@@ -25,9 +25,9 @@ class Convert:
                 if again is True:
                     return False
             elif self.Is_Operator(input[i]) is True:
-                input[i-2].append(self.Combine(input.pop(i-2), input.pop(i-2), input.pop(i-2)))
+                input[i-2] = self.Combine(input.pop(i-2), input.pop(i-2), input.pop(i-2))
 
 input = "123/456^*-7+8*+"
-a = Convert
+a = Convert()
 a.Convert(input)
 a.Algorithm(a.Input)
