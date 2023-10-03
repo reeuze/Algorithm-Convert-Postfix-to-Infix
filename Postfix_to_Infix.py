@@ -13,10 +13,15 @@ class Convert:
         if character in operators:
             return True
     def Combine(self, value_1, value_2, operator):
-        return '('+value_1+operator+value_2+'+'
+        result = str('('+value_1+operator+value_2+')') 
+        print(result)
+        return result
     def Algorithm(self, input = [], index = 0):
-        for i in range(index, len(input)):
+        i = 0
+        i += index
+        while i < len(input):
             self.Print(input[i])
+            print(len(input))
             print("index = ", i, "\n")
             if len(input)==1:
                 break
@@ -25,9 +30,12 @@ class Convert:
                 print(again)
                 if again is True:
                     return False
+                else:
+                    print('\n')
             elif self.Is_Operator(input[i]) is True:
                 input[i-2] = self.Combine(input.pop(i-2), input.pop(i-2), input.pop(i-2))
                 return True
+            i += 1
 
 input = "123/456^*-7+8*+"
 a = Convert()
