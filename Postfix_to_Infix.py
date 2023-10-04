@@ -25,16 +25,19 @@ class Convert:
             print("index = ", i, "\n")
             if len(input)==1:
                 break
-            elif input[i].isdigit():
-                again = self.Algorithm(input, i+1)
-                print(again)
-                if again is True:
-                    return False
-                else:
-                    print('\n')
+            # elif input[i].isdigit():
+            #     again = self.Algorithm(input, i+1)
+            #     print(again)
+            #     if again is True:
+            #         return False
+            #     else:
+            #         print('\n')
             elif self.Is_Operator(input[i]) is True:
-                input[i-2] = self.Combine(input.pop(i-2), input.pop(i-2), input.pop(i-2))
-                return True
+                input[i-2] = self.Combine(input[i-2], input[i-1], input[i])
+                for j in range(0, 2):
+                    input.pop(i-1)
+                i -= 2
+                # return True
             i += 1
 
 input = "123/456^*-7+8*+"
